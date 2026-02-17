@@ -1,0 +1,25 @@
+@reference "../../index.css";
+
+.sidebar {
+    @apply fixed left-0 top-0 h-screen w-64 bg-bg-sidebar border-r border-white/5 hidden lg:flex flex-col p-6;
+}
+
+.logo {
+    @apply flex items-center gap-2 mb-10 text-xl font-bold;
+}
+
+.logoIcon {
+    @apply w-6 h-6 bg-brand-blue rounded shadow-[0_0_15px_#0095FF];
+}
+
+.nav {
+    @apply flex flex-col gap-y-4;
+}
+
+.navItem {
+    @apply text-left px-2 py-1 transition-colors text-text-muted hover:text-white text-sm font-medium;
+}
+
+.navItemActive {
+    @apply text-brand-blue;
+}
