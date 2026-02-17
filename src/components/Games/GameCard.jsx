@@ -12,7 +12,6 @@ export default function GameCard({ game }) {
             </div>
             <div className={styles.body}>
                 <h4 className={styles.name}>{game.title}<a href="#"><img src={pragmaticPlay} alt="" /></a></h4>
-                <p className={styles.vendor}></p>
             </div>
         </div>
     );

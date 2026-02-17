@@ -14,6 +14,22 @@ import game13 from "./image 931.png";
 import game14 from "./image 933.png";
 import game15 from "./image 934.png";
 import pragmaticPlay from "./PragmaticPlay_new.png";
+import frame from "./Frame 82.png";
+import search from "./Icon _ Search.png";
+import all from "./all.png";
+import live from "./live.png";
+import news from "./news.png";
+import slot from "./slot.png";
+import popular from "./popular.png";
+import fast from "./fast.png";
+import buy from "./buy.png";
+import main from "./Main.png";
+import brand from "./brand.png";
+import upgrades from "./new.png";
+import hall from "./hall.png";
+import games from "./games.png";
+import vector from "./vector.png";
+import cards from "./cards.png";
 
-export { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, pragmaticPlay };
+export { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, pragmaticPlay, frame, search, all, live, news, slot, popular, fast, buy, main, brand, upgrades, hall, games, vector, cards };
 

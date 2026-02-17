@@ -3,7 +3,7 @@
 .card {
   background-color: var(--color-bg-card);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  @apply relative rounded-2xl overflow-hidden transition-all duration-300;
+  @apply relative rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer;
 }
 
 .card:hover {
@@ -29,13 +29,11 @@
 }
 
 .name {
-  @apply text-sm font-semibold truncate transition-colors ;
-  background: #24243A;
-  padding: 8px;
-  display: flex;
-  justify-content: space-between;
+  @apply text-sm font-semibold truncate transition-colors flex justify-between p-2 ;
+  background-color: #24243A;
 }
 
 .card:hover .name {
   color: var(--color-brand-blue);
 }
+

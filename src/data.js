@@ -1,11 +1,13 @@
-import { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15 } from './assets/images/images.js';
+import { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, games, live, news, slot, popular, fast, buy, all } from './assets/images/images.js';
 export const CATEGORIES = [
-  { id: 'all', label: 'Все' },
-  { id: 'fast', label: 'Быстрые Игры' },
-  { id: 'slots', label: 'Слоты' },
-  { id: 'live', label: 'Live Казино' },
-  { id: 'popular', label: 'Популярные' },
-  { id: 'new', label: 'Новые' }
+  { id: 'all', label: 'Все', img: all },
+  { id: 'fast', label: 'Быстрые Игры', img: fast },
+  { id: 'slots', label: 'Слоты', img: games },
+  { id: 'live', label: 'Live Казино', img: live },
+  { id: 'popular', label: 'Популярные', img: popular },
+  { id: 'casino', label: 'Казино', img: slot },
+  { id: 'new', label: 'Новые', img: news },
+  { id: 'bonus', label: 'Покупка бонусов', img: buy },
 ];
 
 export const INITIAL_GAMES = [
@@ -19,9 +21,9 @@ export const INITIAL_GAMES = [
   { id: 8, title: 'Aviator', category: 'fast', img: game8 },
   { id: 9, title: 'Live Roulette', category: 'live', img: game9 },
   { id: 10, title: 'Blackjack', category: 'live', img: game10 },
-  { id: 11, title: 'Poker', category: 'live', img: game11 },
-  { id: 12, title: 'Roulette', category: 'live', img: game12 },
+  { id: 11, title: 'Poker', category: 'casino', img: game11 },
+  { id: 12, title: 'Roulette', category: 'bonus', img: game12 },
   { id: 13, title: 'Baccarat', category: 'live', img: game13 },
-  { id: 14, title: 'Craps', category: 'live', img: game14 },
-  { id: 15, title: 'Live Blackjack', category: 'live', img: game15 },
+  { id: 14, title: 'Craps', category: 'new', img: game14 },
+  { id: 15, title: 'Live Blackjack', category: 'new', img: game15 },
 ];

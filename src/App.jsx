@@ -1,18 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Layout/Sidebar';
 import Header from './components/Layout/Header';
 import FilterBar from './components/Games/FilterBar';
 import GameCard from './components/Games/GameCard';
 import { INITIAL_GAMES } from './data';
+import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
   const [games, setGames] = useState(INITIAL_GAMES);
   const loader = useRef(null);
 
-  const filteredGames = activeTab === 'all'
-    ? games
-    : games.filter(g => g.category === activeTab);
+const EmptyPage = ({ title }) => (
+  <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
+    <Breadcrumbs />
+    <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">{title}</h1>
+  </main>
+);
+
+  const filteredGames = useMemo(() => {
+    return games.filter(game => {
+      const matchesTab = activeTab === 'all' || game.category === activeTab;
+      const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesTab && matchesSearch;
+    });
+  }, [games, activeTab, searchTerm]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -27,25 +41,46 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
-      <div className="flex-1 lg:ml-64">
-        <Header />
-        <main className="p-4 md:p-8 max-w-[1600px] mx-auto">
-          <h1 className="text-2xl md:text-3xl font-bold mb-8">Игры</h1>
-          <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
+    <BrowserRouter>
+      <div className="flex min-h-screen bg-[#040312]">
+        <Sidebar />
+        <div className="flex-1">
+          <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <Routes>
+            <Route path="/games" element={
+              <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
+                <Breadcrumbs />
+                <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">Игры</h1>
+                <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6">
-            {filteredGames.map(game => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6 mt-8">
+                  {filteredGames.map(game => (
+                    <GameCard key={game.id} game={game} />
+                  ))}
+                </div>
+                {
+                  filteredGames.length === 0 && (
+                    <div className="text-center py-20 text-gray-500">
+                      По запросу "{searchTerm}" ничего не найдено
+                    </div>
+                  )
+                }
 
-          <div ref={loader} className="h-40 flex items-center justify-center">
-            <div className="w-8 h-8 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
-          </div>
-        </main>
+                < div ref={loader} className="h-40 flex items-center justify-center" >
+                  <div className="w-8 h-8 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              </main>
+            } />
+            <Route path="/home" element={<EmptyPage title="Главная" />} />
+            <Route path="/updates" element={<EmptyPage title="Обновления" />} />
+            <Route path="/brands" element={<EmptyPage title="Бренды" />} />
+            <Route path="/providers" element={<EmptyPage title="Провайдеры" />} />
+            <Route path="/bonuses" element={<EmptyPage title="Бонусы" />} />
+            <Route path="/apps" element={<EmptyPage title="Приложения" />} />
+            <Route path="/" element={<Navigate to="/games" />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </BrowserRouter >
   );
 }
