@@ -1,0 +1,42 @@
+@reference "../../index.css";
+
+.header {
+  @apply h-20 border-b border-white/5 flex items-center justify-between px-4 md:px-8 sticky top-0 z-50;
+  background-color: rgba(8, 7, 29, 0.8); /* var(--color-bg-main) с прозрачностью */
+  backdrop-filter: blur(12px);
+}
+
+.searchWrapper {
+  @apply flex-1 max-w-md hidden md:block;
+}
+
+.searchInput {
+  @apply w-full bg-white/5 border border-white/10 rounded-xl py-2 px-4 text-sm transition-all focus:outline-none;
+}
+
+.searchInput:focus {
+  border-color: rgba(0, 149, 255, 0.5);
+}
+
+.actions {
+  @apply flex gap-3;
+}
+
+.loginBtn {
+  @apply px-5 py-2 text-sm rounded-xl border border-white/10 transition font-medium;
+}
+
+.loginBtn:hover {
+  @apply bg-white/5;
+}
+
+.regBtn {
+  /* Вместо сложного @apply shadow-[...] используем чистый CSS */
+  @apply px-5 py-2 text-sm rounded-xl font-bold transition;
+  background-color: var(--color-brand-blue);
+  box-shadow: 0 0 15px rgba(0, 149, 255, 0.3);
+}
+
+.regBtn:hover {
+  filter: brightness(110%);
+}
