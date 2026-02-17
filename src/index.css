@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-main: #08071D;
+  --color-bg-sidebar: #100F1A;
+  --color-accent-glow: #2013791A;
+  --color-brand-blue: #0095FF;
+  --color-card-bg: #161521;
+  --color-text-muted: #808191;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-white antialiased;
+  }
+}
