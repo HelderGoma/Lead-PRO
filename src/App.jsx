@@ -6,6 +6,7 @@ import FilterBar from './components/Games/FilterBar';
 import GameCard from './components/Games/GameCard';
 import { INITIAL_GAMES } from './data';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
+import Sort from './components/Sort/Sort';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -51,6 +52,7 @@ const EmptyPage = ({ title }) => (
               <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
                 <Breadcrumbs />
                 <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">Игры</h1>
+                <Sort />
                 <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6 mt-8">

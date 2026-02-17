@@ -23,13 +23,13 @@
 }
 
 .loginBtn {
-  @apply px-5 py-2 text-sm font-medium transition-all;
+  @apply px-5 py-2 text-sm font-medium transition-all cursor-pointer;
   border: 1px solid #2BD9FF;
   border-radius: 10px;
 }
 
 .regBtn {
-  @apply px-5 py-2 text-sm font-bold transition-all text-white;
+  @apply px-5 py-2 text-sm font-bold transition-all text-white cursor-pointer;
   background-color: var(--color-brand-blue);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 149, 255, 0.3);
