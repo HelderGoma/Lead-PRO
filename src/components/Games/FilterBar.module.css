@@ -1,0 +1,30 @@
+@reference "../../index.css";
+
+.container {
+    @apply flex gap-3 overflow-x-auto pb-6;
+    scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+
+.filterBtn {
+
+    background-color: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
+    @apply px-5 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all;
+}
+
+.filterBtn:hover {
+    @apply text-white border-white/20;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.filterBtnActive {
+    background-color: var(--color-brand-blue);
+    border-color: var(--color-brand-blue);
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 149, 255, 0.3);
+}
