@@ -14,10 +14,3 @@
     @apply bg-bg-main text-white antialiased;
   }
 }
-
-@media (1024px >= width) {
-  .main {
-    margin-left: 200px;
-  }
-  
-}

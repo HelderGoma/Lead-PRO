@@ -12,10 +12,8 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [games, setGames] = useState(INITIAL_GAMES);
-
   const [provider, setProvider] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
-
   const loader = useRef(null);
 
   const EmptyPage = ({ title }) => (
@@ -30,7 +28,6 @@ export default function App() {
       const matchesTab = activeTab === 'all' || game.category === activeTab;
       const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesProvider = provider === 'all' || game.provider === provider;
-
       return matchesTab && matchesSearch && matchesProvider;
     });
 
@@ -67,21 +64,17 @@ export default function App() {
                 <Breadcrumbs />
                 <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">Игры</h1>
                 <SortBar setSortBy={setSortBy} setProvider={setProvider} />
-
                 <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
-
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8" >
                   {filteredGames.map(game => (
                     <GameCard key={game.id} game={game} />
                   ))}
                 </div>
-
                 {filteredGames.length === 0 && (
                   <div className="text-center py-20 text-gray-500">
                     По запросу "{searchTerm}" ничего не найдено
                   </div>
                 )}
-
                 <div ref={loader} className="h-40 flex items-center justify-center" >
                   <div className="w-8 h-8 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
                 </div>
