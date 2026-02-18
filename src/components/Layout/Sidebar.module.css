@@ -1,14 +1,14 @@
 @reference "../../index.css";
 
 .sidebar {
-    @apply fixed left-0 w-50 bg-[#08071D] border-r border-white/5 ;
-    top: 80px;
-    height: calc(100vh - 80px);
-    z-index: 40;
+  @apply fixed left-0 w-50 bg-[#08071D] border-r border-white/5;
+  top: 80px;
+  height: calc(100vh - 80px);
+  z-index: 40;
 }
 
 .nav {
-    @apply flex flex-col gap-y-4 pt-5 pl-5;
+  @apply flex flex-col gap-y-4 pt-5 pl-5;
 }
 
 .navItem {
@@ -16,7 +16,7 @@
 }
 
 .navItemActive {
-  @apply text-white bg-white/5  border-brand-blue;
+  @apply text-white bg-white/5 border-brand-blue;
 }
 
 .icon {

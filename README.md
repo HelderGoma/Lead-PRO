@@ -1,16 +1,54 @@
-# React + Vite
+# Lead Pro — Игровой Портал
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современный интерфейс игрового портала, разработанный на **React** с использованием **Vite** и **Tailwind CSS**. Проект включает в себя динамическую систему фильтрации, бесконечный скролл и полноценную навигацию.
 
-Currently, two official plugins are available:
+##  Стек технологий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Frontend:** React 18
+* **Routing:** React Router DOM (v6)
+* **Styling:** Tailwind CSS + CSS Modules
+* **Icons:** React Icons / Кастомные SVG
+* **Tooling:** Vite
 
-## React Compiler
+##  Функционал
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Навигация и Роутинг
+* Реализован полноценный Sidebar с использованием `NavLink`.
+* Динамические "Хлебные крошки" (Breadcrumbs), которые отображают текущий путь: `Главная / Игры`.
+* Система маршрутов: контент отображается только на странице "Игры", остальные страницы подготовлены под будущую разработку.
 
-## Expanding the ESLint configuration
+### 2. Фильтрация и Сортировка
+* **Поиск:** Мгновенный поиск по названию игры.
+* **Категории:** Фильтрация через `FilterBar` (Слоты, Live, Новинки и т.д.).
+* **Провайдеры:** Выпадающий список с фильтрацией по конкретному разработчику.
+* **Сортировка:** Возможность сортировки по алфавиту и новизне.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. Производительность
+* Использование хука `useMemo` для оптимизации тяжелых вычислений при фильтрации списка игр.
+* **Бесконечный скролл:** Автоматическая подгрузка контента при достижении низа страницы с помощью `Intersection Observer API`.
+
+##  Структура проекта
+
+```text
+src/
+├── assets/          # Изображения и иконки
+├── components/      # Компоненты (Layout, Games, Sort, Breadcrumbs)
+├── data.js          # Исходные данные (INITIAL_GAMES)
+├── App.jsx          # Главный компонент и логика состояний
+└── main.jsx         # Точка входа
+
+## Установка и запуск
+
+1. Клонировать репозиторий:
+```bash
+git clone [https://github.com/your-username/lead-pro.git](https://github.com/your-username/lead-pro.git)
+
+2. Установить зависимости:
+```bash
+npm install
+
+3. Запустить приложение:
+```bash
+npm run dev
+
+4. Открыть приложение в браузере

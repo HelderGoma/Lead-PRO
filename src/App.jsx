@@ -6,28 +6,42 @@ import FilterBar from './components/Games/FilterBar';
 import GameCard from './components/Games/GameCard';
 import { INITIAL_GAMES } from './data';
 import Breadcrumbs from './components/Breadcrumbs/Breadcrumbs';
-import Sort from './components/Sort/Sort';
+import SortBar from './components/SortBar/SortBar';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [games, setGames] = useState(INITIAL_GAMES);
+
+  const [provider, setProvider] = useState('all');
+  const [sortBy, setSortBy] = useState('popular');
+
   const loader = useRef(null);
 
-const EmptyPage = ({ title }) => (
-  <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
-    <Breadcrumbs />
-    <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">{title}</h1>
-  </main>
-);
+  const EmptyPage = ({ title }) => (
+    <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50 text-white">
+      <Breadcrumbs />
+      <h1 className="text-2xl md:text-3xl font-bold mb-8">{title}</h1>
+    </main>
+  );
 
   const filteredGames = useMemo(() => {
-    return games.filter(game => {
+    let result = games.filter(game => {
       const matchesTab = activeTab === 'all' || game.category === activeTab;
       const matchesSearch = game.title.toLowerCase().includes(searchTerm.toLowerCase());
-      return matchesTab && matchesSearch;
+      const matchesProvider = provider === 'all' || game.provider === provider;
+
+      return matchesTab && matchesSearch && matchesProvider;
     });
-  }, [games, activeTab, searchTerm]);
+
+    if (sortBy === 'name') {
+      result.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (sortBy === 'new') {
+      result.sort((a, b) => b.id - a.id);
+    }
+
+    return result;
+  }, [games, activeTab, searchTerm, provider, sortBy]);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -52,7 +66,8 @@ const EmptyPage = ({ title }) => (
               <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
                 <Breadcrumbs />
                 <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">Игры</h1>
-                <Sort />
+                <SortBar setSortBy={setSortBy} setProvider={setProvider} />
+
                 <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6 mt-8">
@@ -60,15 +75,14 @@ const EmptyPage = ({ title }) => (
                     <GameCard key={game.id} game={game} />
                   ))}
                 </div>
-                {
-                  filteredGames.length === 0 && (
-                    <div className="text-center py-20 text-gray-500">
-                      По запросу "{searchTerm}" ничего не найдено
-                    </div>
-                  )
-                }
 
-                < div ref={loader} className="h-40 flex items-center justify-center" >
+                {filteredGames.length === 0 && (
+                  <div className="text-center py-20 text-gray-500">
+                    По запросу "{searchTerm}" ничего не найдено
+                  </div>
+                )}
+
+                <div ref={loader} className="h-40 flex items-center justify-center" >
                   <div className="w-8 h-8 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
                 </div>
               </main>

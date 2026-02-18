@@ -17,7 +17,7 @@
 }
 
 .card:hover .img {
-  @apply scale-110;
+  @apply scale-105;
 }
 
 .playOverlay {

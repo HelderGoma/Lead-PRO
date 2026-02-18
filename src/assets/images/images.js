@@ -30,6 +30,7 @@ import hall from "./hall.png";
 import games from "./games.png";
 import vector from "./vector.png";
 import cards from "./cards.png";
+import filter from "./filter.png";
 
-export { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, pragmaticPlay, frame, search, all, live, news, slot, popular, fast, buy, main, brand, upgrades, hall, games, vector, cards };
+export { game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, game12, game13, game14, game15, pragmaticPlay, frame, search, all, live, news, slot, popular, fast, buy, main, brand, upgrades, hall, games, vector, cards, filter };
 
