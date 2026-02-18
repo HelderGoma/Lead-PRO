@@ -29,19 +29,21 @@
 
 ##  Структура проекта
 
-```text
+```
 src/
 ├── assets/          # Изображения и иконки
-├── components/      # Компоненты (Layout, Games, Sort, Breadcrumbs)
+├── components/      # Компоненты (Layout, Games, SortBar, Breadcrumbs)
 ├── data.js          # Исходные данные (INITIAL_GAMES)
 ├── App.jsx          # Главный компонент и логика состояний
 └── main.jsx         # Точка входа
+
+```
 
 ## Установка и запуск
 
 1. Клонировать репозиторий:
 ```bash
-git clone [https://github.com/your-username/lead-pro.git](https://github.com/your-username/lead-pro.git)
+git clone [(https://github.com/HelderGoma/Lead-PRO.git)]
 
 2. Установить зависимости:
 ```bash
