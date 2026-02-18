@@ -19,6 +19,7 @@ export default function Header({ searchTerm, setSearchTerm }) {
                 <button className={styles.loginBtn}>Вход</button>
                 <button className={styles.regBtn}>Регистрация</button>
             </div>
+            
         </header>
     );
 }

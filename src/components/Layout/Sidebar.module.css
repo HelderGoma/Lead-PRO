@@ -3,7 +3,7 @@
 .sidebar {
   @apply fixed left-0 w-50 bg-[#08071D] border-r border-white/5;
   top: 80px;
-  height: calc(100vh - 80px);
+  height: calc(100% - 80px);
   z-index: 40;
 }
 

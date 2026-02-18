@@ -1,7 +1,7 @@
 @reference "../../index.css";
 
 .sortContainer {
-    @apply flex items-center gap-3 bg-[#0D0B21]/40 p-4 rounded-2xl mb-8 border border-white/5 w-200;
+    @apply flex items-center gap-3 bg-[#0D0B21]/40 p-4 rounded-2xl mb-8 border border-white/5 w-200 ;
 }
 
 .fieldGroup {

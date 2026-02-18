@@ -56,21 +56,21 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter  basename="/lead-pro/">
       <div className="flex min-h-screen bg-[#040312]">
         <Sidebar />
         <div className="flex-1">
           <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
           <Routes>
             <Route path="/games" element={
-              <main className="p-4 md:p-8 max-w-[1600px] mx-auto lg:ml-50">
+              <main className="main p-4 md:p-8 max-w-100% mx-auto lg:ml-50 bg-[#040312]" >
                 <Breadcrumbs />
                 <h1 className="text-2xl md:text-3xl font-bold mb-8 text-white">Игры</h1>
                 <SortBar setSortBy={setSortBy} setProvider={setProvider} />
 
                 <FilterBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-6 mt-8">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-6 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 mt-8" >
                   {filteredGames.map(game => (
                     <GameCard key={game.id} game={game} />
                   ))}

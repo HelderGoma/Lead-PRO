@@ -37,7 +37,6 @@ export default function SortBar({ setSortBy, setProvider }) {
       </div>
       <button className={styles.filterBtn}>
         <img src={filter} alt="" />
-          <path d="M3 6l9 9 9-9H3z" />
       </button>
     </div>
   );
