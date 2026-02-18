@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import  { useState, useEffect, useRef, useMemo } from 'react';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Layout/Sidebar';
 import Header from './components/Layout/Header';
 import FilterBar from './components/Games/FilterBar';
@@ -56,7 +56,7 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter  basename="/lead-pro/">
+    <HashRouter>
       <div className="flex min-h-screen bg-[#040312]">
         <Sidebar />
         <div className="flex-1">
@@ -97,6 +97,6 @@ export default function App() {
           </Routes>
         </div>
       </div>
-    </BrowserRouter >
+    </HashRouter >
   );
 }
